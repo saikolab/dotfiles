@@ -13,8 +13,10 @@
 
     cask_pkgs:
       - amethyst
+      - brave-browser
       - visual-studio-code
       - 1password
+      - warp
 
   tasks:
 
