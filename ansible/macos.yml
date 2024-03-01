@@ -20,13 +20,8 @@
 
     - name: Install brew packages
       community.general.homebrew:
-        name: "{{ item }}"
+        name: "{{ brew_pkgs }}"
         state: present
-      loop:
-        - grep
-        - docker
-        - docker-compose
-        - colima
 
     - name: Install cask packages
       community.general.homebrew_cask:
