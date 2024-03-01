@@ -16,17 +16,16 @@
       - amethyst
 
   tasks:
-    
-    - name: Install brew packages
-      community.general.homebrew:
-        name: "{{ item }}"
-        state: present
-        loop: brew_pkgs
-
     - name: Install cask packages
       community.general.homebrew_cask:
         name: "{{ item }}"
         state: present
-        loop: cask_pkgs
+      loop: "{{ cask_pkgs }}"
 
+    - name: Install brew packages
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ brew_pkgs }}"
+    
     # - name: Install asdf packages
