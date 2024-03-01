@@ -1,9 +1,7 @@
 ---
 
 - hosts: 127.0.0.1
-  become: true
   connection: local
-  become_user: root
 
   vars:
     brew_pkgs:
