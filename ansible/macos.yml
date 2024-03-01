@@ -1,0 +1,32 @@
+---
+
+- hosts: 127.0.0.1
+  become: true
+  connection: local
+  become_user: root
+
+  vars:
+    brew_pkgs:
+      - grep
+      - docker
+      - docker-compose
+      - colima
+
+    cask_pkgs:
+      - amethyst
+
+  tasks:
+    
+    - name: Install brew packages
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: present
+        loop: brew_pkgs
+
+    - name: Install cask packages
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        state: present
+        loop: cask_pkgs
+
+    # - name: Install asdf packages
