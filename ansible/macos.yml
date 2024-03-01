@@ -33,8 +33,7 @@
       template:
         src: dotmacos.j2
         dest: ~/.macos
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user}}"
+        owner: "{{ lookup('env', 'USER') }}"
         mode: 0644
 
 
